@@ -1,0 +1,32 @@
+<!-- com '! + enter' cria inicialmente todas as tags-->
+<!-- falar que o arquivo é html5 -->
+<!DOCTYPE html>
+<!--tag html(hypertext markup language)-->
+<html lang="pt_br">
+    <!--tag head-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# esta sendo o título padrão para quando 
+        não tiver o block title #}
+        {% block title %}
+            <title>Ecoleta</title>
+        {% endblock title %}
+        <!--adicionando fontes a pagina-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+        <!--'link:css' para referenciar os arquivos css-->
+        <link rel="stylesheet" href="/styles/main.css">
+        {# n-block #}
+        {% block styles %}{% endblock styles %}
+        <link rel="stylesheet" href="/styles/responsive.css">
+    </head>
+    <!--tag body-->
+    <body>
+        {# variavel no nunjucks {{}} #}
+        <div id="{{ pageId }}">
+            {% block content %}{% endblock content %}
+        </div>
+        {% block modal %}{% endblock modal %}
+        {% block scripts %}{% endblock scripts %}
+    </body>
+</html>
